@@ -9,14 +9,14 @@ const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
   const [requestParams, setRequestParams] = useState({
-    location: '',
-    animal: '',
-    breed: ''
+    location: "",
+    animal: "",
+    breed: "",
   });
   const [animal, setAnimal] = useState("");
   const [breeds] = useBreedList(animal);
 
-  const result = useQuery(['search', requestParams],fetchSearch );
+  const result = useQuery(["search", requestParams], fetchSearch);
   const [adoptedPet] = useContext(AdoptedPetContext);
 
   const pets = result?.data?.pets ?? [];
@@ -28,10 +28,10 @@ const SearchParams = () => {
           e.preventDefault();
           const formData = new FormData(e.target);
           const obj = {
-            animal: formData.get('animal') ?? "",
-            breed: formData.get('breed') ?? "",
-            location: formData.get('location') ?? ""
-          }
+            animal: formData.get("animal") ?? "",
+            breed: formData.get("breed") ?? "",
+            location: formData.get("location") ?? "",
+          };
           setRequestParams(obj);
         }}
       >
@@ -39,14 +39,10 @@ const SearchParams = () => {
           <div className="pet image-container">
             <img src={adoptedPet.images[0]} alt={adoptedPet.name}></img>
           </div>
-        ): null}
+        ) : null}
         <label htmlFor="location">
           Location
-          <input
-            id="location"
-            name="location"
-            placeholder="Location"
-          />
+          <input id="location" name="location" placeholder="Location" />
         </label>
 
         <label htmlFor="animal">
@@ -56,7 +52,6 @@ const SearchParams = () => {
             value={animal}
             onChange={(e) => {
               setAnimal(e.target.value);
-              
             }}
           >
             <option />
@@ -70,11 +65,7 @@ const SearchParams = () => {
 
         <label htmlFor="breed">
           Breed
-          <select
-            disabled={!breeds.length}
-            id="breed"
-            name="breed"
-          >
+          <select disabled={!breeds.length} id="breed" name="breed">
             <option />
             {breeds.map((breed) => (
               <option key={breed} value={breed}>
