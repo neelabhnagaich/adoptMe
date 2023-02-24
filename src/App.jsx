@@ -29,7 +29,7 @@ const App = () => {
           <AdoptedPetContext.Provider value={adoptedPet}>
             <header className="mb-10 w-full bg-gradient-to-b from-yellow-400 
             via-orange-500 to-red-500 p-7 text-center text-white text-6xl hover: text-yellow">
-              <Link to="/">Adopt Me!</Link>
+              <Link to="/">Adopt Me new one</Link>
             </header>
             <Routes>
               <Route path="/details/:id" element={<Details />} />
