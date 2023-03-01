@@ -3,3 +3,20 @@
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
+
+@layer base {
+    body {
+        font-family: "Comic Sans MS";
+    }
+}
+@layer components{
+    .search-input {
+        @apply mb-5 block w-60
+    }
+}
+
+@layer utilities{
+    .grayed-out-disabled {
+        @apply disabled:opacity-50
+    }
+}
