@@ -26,6 +26,7 @@ const Details = () => {
   const pet = results.data.pets[0];
 
   return (
+    // test commit
     <div className="flex-col-2 flex justify-between">
       <Carousel images={pet.images} />
       <div>
