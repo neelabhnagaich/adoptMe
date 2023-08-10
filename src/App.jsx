@@ -1,3 +1,4 @@
+import React from 'react'
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -5,6 +6,22 @@ import SearchParams from "./SearchParams";
 import Details from "./Details";
 import AdoptedPetContext from "./AdoptedPetContext";
 import { useState } from "react";
+
+import Bugsnag from '@bugsnag/js';
+import BugsnagPluginReact from '@bugsnag/plugin-react';
+import BugsnagPerformance from '@bugsnag/browser-performance'
+
+
+Bugsnag.start({
+  apiKey: '891c3e7b01dcb8c84481ff9c73c0a65b',
+  plugins: [new BugsnagPluginReact()],
+  releaseStage: 'staging'
+})
+
+BugsnagPerformance.start('891c3e7b01dcb8c84481ff9c73c0a65b');
+
+const ErrorBoundary = Bugsnag.getPlugin('react')
+  .createErrorBoundary(React)
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -46,4 +63,4 @@ const App = () => {
 
 const container = document.getElementById("root");
 const root = createRoot(container);
-root.render(<App />);
+root.render(<ErrorBoundary><App /></ErrorBoundary>);

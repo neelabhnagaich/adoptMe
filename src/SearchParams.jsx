@@ -4,6 +4,7 @@ import AdoptedPetContext from "./AdoptedPetContext";
 import fetchSearch from "./fetchSearch";
 import Results from "./Results";
 import useBreedList from "./useBreedList";
+import Image from './webpack1.jpeg'
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -93,6 +94,7 @@ const SearchParams = () => {
         </button>
       </form>
       <Results pets={pets} />
+      <img src={Image} alt="atl"/>
     </div>
   );
 };
