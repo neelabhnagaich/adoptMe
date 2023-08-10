@@ -13,12 +13,12 @@ import BugsnagPerformance from '@bugsnag/browser-performance'
 
 
 Bugsnag.start({
-  apiKey: '891c3e7b01dcb8c84481ff9c73c0a65b',
+  apiKey: '87ddd2f92677c3e8640b3a08799f4f7a',
   plugins: [new BugsnagPluginReact()],
   releaseStage: 'staging'
 })
 
-BugsnagPerformance.start('891c3e7b01dcb8c84481ff9c73c0a65b');
+BugsnagPerformance.start('87ddd2f92677c3e8640b3a08799f4f7a');
 
 const ErrorBoundary = Bugsnag.getPlugin('react')
   .createErrorBoundary(React)

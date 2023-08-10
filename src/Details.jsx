@@ -6,6 +6,7 @@ import Carousel from "./Carousel";
 import Modal from "./Modal";
 import { useContext, useState } from "react";
 import AdoptedPetContext from "./AdoptedPetContext";
+import Bugsnag from "@bugsnag/js";
 
 const Details = () => {
   const { id } = useParams();
@@ -34,6 +35,7 @@ const Details = () => {
         <h2>{`${pet.animal} — ${pet.breed} — ${pet.city}, ${pet.state}`}</h2>
         <button
           onClick={() => {
+            Bugsnag.notify(new Error('Test error'))
             setShowModal(true);
           }}
         >
