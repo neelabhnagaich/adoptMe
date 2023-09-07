@@ -32,8 +32,12 @@ const queryClient = new QueryClient({
   },
 });
 
+
+
 const App = () => {
   const adoptedPet = useState(null);
+  x = 23;
+  let x;
   return (
     <div
       className="m-0 p-0"
